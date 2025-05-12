@@ -1,11 +1,48 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import GameCard from '../components/GameCard.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const featuredPosts = [
+	{
+		title: 'The Latest Gaming Trends of 2025',
+		excerpt: "Discover what's shaping the gaming industry this year, from AI-driven narratives to revolutionary gameplay mechanics.",
+		featuredImage: "https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		date: "April 1, 2024",
+		slug: "gaming-trends-2024"
+	},
+	{
+		title: 'Top 10 Must-Play Indie Games of 2024',
+		excerpt: "Explore the most exciting indie games that are making waves in the gaming community this year.",
+		featuredImage: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		date: "March 15, 2024",
+		slug: "must-play-indie-games-2024"
+	},
+	{
+		title: 'The Evolution of Game Graphics: A Journey Through Time',
+		excerpt: "Take a look back at how game graphics have evolved from pixel art to hyper-realistic visuals.",
+		featuredImage: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		date: "February 20, 2024",
+		slug: "evolution-of-game-graphics",
+	}
+]
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="GameHub - Your Ultimate Gaming Destination">
+	<section class="bg-black text-white py-20">
+		<div class="container mx-auto px-4 text-center">
+			<h1 class="text-5xl font-bold mb-6">Welcome to GameHub!</h1>
+			<p class="text-xl max-w-2xl mx-auto">
+				Here you will find the latest news and reviews on your favorite games, 
+				as well as in-depth features and guides to help you level up your gaming experience.
+				Enjoy the information and stay tuned for more exciting content!
+			</p>
+		</div>
+	</section>
+
+	<section class="container mx-auto px-4 py-12">
+		<h2 class="text-3xl font-bold mb-8 text-center">Latest Articles</h2>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			{featuredPosts.map((post) => <GameCard {...post} />)}
+		</div>
+	</section>
 </Layout>
