@@ -1,18 +1,74 @@
 ---
-import '.src/styles/global.css';
+import "@fontsource-variable/inter"
+import "../styles/global.css";
+
+interface Props {
+	title: string
+	description?: string
+}
+
+const { title, description = "Your source for video game news, reviews, and features" } = Astro.props
 ---
+
+
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content={description} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
+	<body class="bg-gray-50 text-gray-900">
+		<header class="bg-purple-600 text-white">
+			<nav class="container mx-auto px-4 py-6">
+				<div class="flex items-center justify-between">
+					<a href="/" class="text-2xl font-bold">GameHub</a>
+					<ul class="flex space-x-6">
+						<li><a href="/" class="hover:text-gaming-accent">Home</a></li>
+						<li><a href="/news" class="hover:text-gaming-accent">News</a></li>
+						<li><a href="/reviews" class="hover:text-gaming-accent">Reviews</a></li>
+						<li><a href="/features" class="hover:text-gaming-accent">Features</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<slot />
+		</main>
+
+		<footer class="bg-purple-950 text-white">
+			<div class="container mx-auto px-4 py-8">
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8">
+					<div>
+						<h3 class="text-xl font-bold mb-4">GameHub</h3>
+						<p class="text-gray-300">Your ultimate destination for video game content.</p>
+					</div>
+					<div>
+						<h3 class="text-xl font-bold mb-4">Quick Links</h3>
+						<ul class="space-y-2">
+							<li><a href="/about" class="text-gray-300 hover:text-gaming-accent">About Us</a></li>
+							<li><a href="/contact" class="text-gray-300 hover:text-gaming-accent">Contact</a></li>
+							<li><a href="/privacy" class="text-gray-300 hover:text-gaming-accent">Privacy Policy</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3 class="text-xl font-bold mb-4">Follow Us</h3>
+						<div class="flex space-x-4">
+							<a href="#" class="text-gray-300 hover:text-gaming-accent">Twitter</a>
+							<a href="#" class="text-gray-300 hover:text-gaming-accent">Facebook</a>
+							<a href="#" class="text-gray-300 hover:text-gaming-accent">Instagram</a>
+						</div>
+					</div>
+				</div>
+				<div class="pt-8 border-t border-gray-700 text-center text-gray-300">
+					<p>{new Date().getFullYear()} GameHub. All rights reserved.</p>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>
 
