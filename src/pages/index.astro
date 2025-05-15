@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import GameCard from '../components/GameCard.astro';
-import { getPageInfo } from '../lib/wp.ts';
-
+import { getPageInfo, getLatestPosts } from '../lib/wp.ts';
+/*
 const featuredPosts = [
 	{
 		title: 'The Latest Gaming Trends of 2025',
@@ -25,9 +25,10 @@ const featuredPosts = [
 		date: "February 20, 2024",
 		slug: "evolution-of-game-graphics",
 	}
-]
+]*/
 
 const {title,content} = await getPageInfo("welcome-everyone-to-gamehub") 
+const posts = await getLatestPosts({perPage: 3})
 ---
 
 <Layout title="GameHub - Your Ultimate Gaming Destination">
@@ -41,7 +42,7 @@ const {title,content} = await getPageInfo("welcome-everyone-to-gamehub")
 	<section class="container mx-auto px-4 py-12">
 		<h2 class="text-3xl font-bold mb-8 text-center">Latest Articles</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-			{featuredPosts.map((post) => <GameCard {...post} />)}
+			{posts.map((post: any) => <GameCard {...post} />)}
 		</div>
 	</section>
 </Layout>
