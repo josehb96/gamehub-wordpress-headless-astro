@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import GameCard from '../components/GameCard.astro';
+import { getPageInfo } from '../lib/wp.ts';
 
 const featuredPosts = [
 	{
@@ -25,17 +26,15 @@ const featuredPosts = [
 		slug: "evolution-of-game-graphics",
 	}
 ]
+
+const {title,content} = await getPageInfo("welcome-everyone-to-gamehub") 
 ---
 
 <Layout title="GameHub - Your Ultimate Gaming Destination">
 	<section class="bg-black text-white py-20">
 		<div class="container mx-auto px-4 text-center">
-			<h1 class="text-5xl font-bold mb-6">Welcome to GameHub!</h1>
-			<p class="text-xl max-w-2xl mx-auto">
-				Here you will find the latest news and reviews on your favorite games, 
-				as well as in-depth features and guides to help you level up your gaming experience.
-				Enjoy the information and stay tuned for more exciting content!
-			</p>
+			<h1 class="text-5xl font-bold mb-6">{title}</h1>
+			<div class="text-xl max-w-2xl mx-auto" set:html={content} />
 		</div>
 	</section>
 
