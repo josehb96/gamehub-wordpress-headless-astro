@@ -18,11 +18,13 @@ export const getPageInfo = async (slug: string) => {
 }
 
 export const getLatestPosts = async ({perPage = 10}: {perPage?: number} = {}) => {
-  const response = await fetch(`${apiUrl}/posts?per_page=${perPage}`)
+  const response = await fetch(`${apiUrl}/posts?per_page=${perPage}&_embed`)
   if (!response.ok) throw new Error("Failed to fetch latest posts")
 
   const results = await response.json()
   if (!results.length) throw new Error("No posts found")
+
+  console.log(results)
 
   const posts = results.map((post: any) => {
 
@@ -45,7 +47,9 @@ export const getLatestPosts = async ({perPage = 10}: {perPage?: number} = {}) =>
       slug
     } = post
 
-    return {title, excerpt, content, date, slug}
+    const featuredImage = post._embedded["wp:featuredmedia"][0].source_url
+
+    return {title, excerpt, content, date, slug, featuredImage}
   })
 
   return posts 
