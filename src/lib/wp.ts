@@ -17,8 +17,20 @@ export const getPageInfo = async (slug: string) => {
   return { title, content } 
 }
 
+export const getAllPostsSlugs = async () => {
+  const response = await fetch(`${apiUrl}/posts?per_page=100`)
+  if (!response.ok) throw new Error("Failed to fetch posts slugs")
+
+  const results = await response.json()
+  if (!results.length) throw new Error("No posts found")
+
+  const slugs = results.map((post: any) => post.slug)
+  console.log(slugs)
+  return slugs
+}
+
 export const getPostInfo = async (slug: string) => {
-  const response = await fetch(`${apiUrl}/post?slug=${slug}`)
+  const response = await fetch(`${apiUrl}/posts?slug=${slug}`)
 
   if (!response.ok) throw new Error("Failed to fetch post info")
 
