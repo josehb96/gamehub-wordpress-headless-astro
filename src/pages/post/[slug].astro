@@ -1,0 +1,16 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import GameCard from "../../components/GameCard.astro";
+import { getPostInfo } from "../../lib/wp.ts";
+
+const slug = Astro.params.slug;
+if (!slug) return Astro.redirect("/404"); 
+
+const { title, content } = await getPostInfo(slug);
+---
+<Layout title={title}>
+  <article>
+    <h1>{title}</h1>
+    <div class="text-xl max-w-2xl mx-auto" set:html={content} />
+  </article>
+</Layout>
