@@ -17,6 +17,17 @@ export const getPageInfo = async (slug: string) => {
   return { title, content } 
 }
 
+export const getPostInfo = async (slug: string) => {
+  const response = await fetch(`${apiUrl}/post?slug=${slug}`)
+
+  if (!response.ok) throw new Error("Failed to fetch post info")
+
+  const [data] = await response.json()
+  const { title: {rendered: title}, content: {rendered: content} } = data
+
+  return { title, content } 
+}
+
 export const getLatestPosts = async ({perPage = 10}: {perPage?: number} = {}) => {
   const response = await fetch(`${apiUrl}/posts?per_page=${perPage}&_embed`)
   if (!response.ok) throw new Error("Failed to fetch latest posts")
