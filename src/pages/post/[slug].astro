@@ -2,7 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import { getAllPostsSlugs, getPostInfo } from "../../lib/wp.ts";
 
-const slug = Astro.params.slug
+// Explicitly type Astro.params to avoid TypeScript errors
+const slug = (Astro.params as { slug?: string }).slug;
 if (!slug) return Astro.redirect("/404") 
 
 export async function getStaticPaths() {
@@ -14,8 +15,8 @@ export async function getStaticPaths() {
 const { title, content } = await getPostInfo(slug)
 ---
 <Layout title={title}>
-  <article>
+  <article class="prose max-w-2xl mx-autou mt-24">
     <h1>{title}</h1>
-    <div class="text-xl max-w-2xl mx-auto" set:html={content} />
+    <div set:html={content} />
   </article>
 </Layout>
