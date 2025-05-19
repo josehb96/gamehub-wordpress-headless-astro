@@ -12,9 +12,9 @@ export async function getStaticPaths() {
   return slugs.map((slug: any) => ({ params: { slug } }))
 }
 
-const { title, content } = await getPostInfo(slug)
+const { title, content, seo } = await getPostInfo(slug)
 ---
-<Layout title={title}>
+<Layout title={title} description={seo.description}>
   <article class="prose max-w-2xl mx-auto my-16">
     <h1>{title}</h1>
     <div set:html={content} />

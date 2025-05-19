@@ -35,9 +35,9 @@ export const getPostInfo = async (slug: string) => {
   if (!response.ok) throw new Error("Failed to fetch post info")
 
   const [data] = await response.json()
-  const { title: {rendered: title}, content: {rendered: content} } = data
+  const { title: {rendered: title}, content: {rendered: content}, yoast_head_json: seo } = data
 
-  return { title, content } 
+  return { title, content, seo } 
 }
 
 export const getLatestPosts = async ({perPage = 10}: {perPage?: number} = {}) => {
