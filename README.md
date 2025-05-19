@@ -10,9 +10,9 @@ De forma que los datos los meteremos en WordPress y a través de una API vamos a
 
 ## ¿Qué es Headless?
 
-![image.png](.github/assets/image.png)
+![image.png](.github/assets/images/image.png)
 
-![image.png](.github/assets/image%200.png)
+![image.png](.github/assets/images/image%200.png)
 
 ## Ventajas y desventajas
 
@@ -38,19 +38,19 @@ Utilizamos la interfaz de creación de un proyecto de en mi caso el software ofi
 
 Una vez dentro borramos las dos páginas que se han creado por defecto:
 
-![image.png](.github/assets/image%201.png)
+![image.png](.github/assets/images/image%201.png)
 
 ## Creando y publicando nuestra primera página
 
 Accedemos a la sección Pages y le damos al botón `Add Page`:
 
-![image.png](.github/assets/image%202.png)
+![image.png](.github/assets/images/image%202.png)
 
 Editamos mínimamente el contenido y le damos a `Publish`.
 
 Pero si accedemos a la página publicada veremos que la URL no es aceptable, porque la URL está utilizando una query string.
 
-![image.png](.github/assets/image%203.png)
+![image.png](.github/assets/images/image%203.png)
 
 Pero a nosotros lo que nos interesa es tener slugs o permalinks que sean legibles, por un tema de SEO.
 
@@ -58,7 +58,7 @@ Pero a nosotros lo que nos interesa es tener slugs o permalinks que sean legible
 
 Cambiamos el formato de los permalinks que por defecto aparece en `Plain` por `Post name`:
 
-![image.png](.github/assets/image%204.png)
+![image.png](.github/assets/images/image%204.png)
 
 Esto es importante porque con el formato de la URL `Plain` no vamos a poder consultar los datos de la API de WordPress, porque las URLs resultantes no van a ser legibles y nos va a dificultar mucho el proceso.
 
@@ -85,7 +85,7 @@ Ocultar el usuario admin no sólo en la respuesta de la API, sino en todo lugar 
 
 Lo bueno es que para el tema de lidiar con los datos de la API podemos optar por instalar uno de los plugin de WordPress, concretamente existe uno llamado `WPGraphQL`.
 
-![image.png](.github/assets/image%205.png)
+![image.png](.github/assets/images/image%205.png)
 
 Lo activamos.
 
@@ -125,23 +125,23 @@ Y usamos este código para recuperar información de la API de nuestro WordPress
 
 Pero al hacerlo nos damos cuenta de que las categorías están sin “categorizar”.
 
-![image.png](.github/assets/image%206.png)
+![image.png](.github/assets/images/image%206.png)
 
 Ya que ahora mismo no tenemos ninguna categoría:
 
-![image.png](.github/assets/image%207.png)
+![image.png](.github/assets/images/image%207.png)
 
 ## Creando una categoría
 
 Usamos la interfaz para crear 2 categorías:
 
-![image.png](.github/assets/image%208.png)
+![image.png](.github/assets/images/image%208.png)
 
 Con esto ahora podremos hacer que las entradas tengan una categoría.
 
 Si ahora volvemos a consultar el resultado de ejecutar el código de GraphQL anterior:
 
-![image.png](.github/assets/image%209.png)
+![image.png](.github/assets/images/image%209.png)
 
 <aside>
 <img src="https://www.notion.so/icons/warning_yellow.svg" alt="https://www.notion.so/icons/warning_yellow.svg" width="40px" />
@@ -158,11 +158,11 @@ Vamos a imaginarnos que vamos a hacer un blog de videojuegos.
 
 Añadimos una featured image:
 
-![image.png](.github/assets/image%2010.png)
+![image.png](.github/assets/images/image%2010.png)
 
 Y contenido a la entrada de blog:
 
-![image.png](.github/assets/image%2011.png)
+![image.png](.github/assets/images/image%2011.png)
 
 <aside>
 <img src="https://www.notion.so/icons/info-alternate_blue.svg" alt="https://www.notion.so/icons/info-alternate_blue.svg" width="40px" />
@@ -181,19 +181,19 @@ Para resolver esto existe un plugin.
 
 Si instalamos este plugin ya no se vería la página por defecto que teníamos en nuestro sitio de WordPress puesto que realizaría una redirección.
 
-![image.png](.github/assets/image%2012.png)
+![image.png](.github/assets/images/image%2012.png)
 
-![image.png](.github/assets/image%2013.png)
+![image.png](.github/assets/images/image%2013.png)
 
 Pero instalar este plugin no hace nada si no configuramos la constante HEADLESS_MODE_CLIENT_URL en nuestro fichero wp-config.php:
 
-![image.png](.github/assets/image%2014.png)
+![image.png](.github/assets/images/image%2014.png)
 
-![image.png](.github/assets/image%2015.png)
+![image.png](.github/assets/images/image%2015.png)
 
 Si volvemos a consultar la información de Settings → Headless Mode:
 
-![image.png](.github/assets/image%2016.png)
+![image.png](.github/assets/images/image%2016.png)
 
 Ahora ya vemos que está correctamente configurada la redirección.
 
@@ -219,7 +219,7 @@ function disable_wp_frontend(){
 
 Este es el resultado tras crear el proyecto de Astro con Tailwind y añadirle algunos componentes:
 
-![image.png](.github/assets/image%2017.png)
+![image.png](.github/assets/images/image%2017.png)
 
 Pero lo que queremos aquí es que la información venga de WordPress, de la API de WordPress, no que la hayamos puesto a mano tal y como está ahora.
 
@@ -235,11 +235,11 @@ WP_DOMAIN="http://localhost:8881"
 
 Borramos las páginas existentes en el panel de administración de WordPress:
 
-![image.png](.github/assets/image%2018.png)
+![image.png](.github/assets/images/image%2018.png)
 
 Creamos una nueva página de WordPress cambiando algo el contenido que pusimos antes en Astro:
 
-![image.png](.github/assets/image%2019.png)
+![image.png](.github/assets/images/image%2019.png)
 
 La publicamos.
 
@@ -258,25 +258,25 @@ En cambio las entradas son los artículos y se agrupan por defecto como si fuese
 
 Vamos a Settings → Reading y establecemos la página de inicio con la página que acabamos de crear.
 
-![image.png](.github/assets/image%2020.png)
+![image.png](.github/assets/images/image%2020.png)
 
 Por lo que si visitamos ahora nuestro sitio WordPress nos muestra el contenido de la Homepage seleccionada:
 
-![image.png](.github/assets/image%2021.png)
+![image.png](.github/assets/images/image%2021.png)
 
 ## Recuperar información con Astro (API)
 
 Creamos una nueva página con el slug `/about`:
 
-![image.png](.github/assets/image%2022.png)
+![image.png](.github/assets/images/image%2022.png)
 
 Consultamos la información de las pages en la API de WordPress:
 
-![image.png](.github/assets/image%2023.png)
+![image.png](.github/assets/images/image%2023.png)
 
 Usamos el slug para la URL y así obtener la información de la página que nos interesa para el inicio:
 
-![image.png](.github/assets/image%2024.png)
+![image.png](.github/assets/images/image%2024.png)
 
 Así que vamos a crear una forma de recuperar esta información desde nuestro proyecto de Astro.
 
@@ -301,7 +301,7 @@ export const getPageInfo = async (slug: string) => {
 
 Ahora si consultamos la información que estamos obteniendo por consola, vemos entre otras cosas que tenemos a nuestra disposición el título y el contenido:
 
-![image.png](.github/assets/image%2025.png)
+![image.png](.github/assets/images/image%2025.png)
 
 <aside>
 <img src="https://www.notion.so/icons/info-alternate_blue.svg" alt="https://www.notion.so/icons/info-alternate_blue.svg" width="40px" />
@@ -455,13 +455,13 @@ const {title,content} = await getPageInfo("welcome-everyone-to-gamehub")
 
 Y con esto ahora si se muestra la información adecuadamente:
 
-![image.png](.github/assets/image%2026.png)
+![image.png](.github/assets/images/image%2026.png)
 
 ## Mostrar los últimos artículos
 
 Ahora lo que queremos es mostrar los artículos que tenemos en WordPress, concretamente teníamos este:
 
-![image.png](.github/assets/image%2027.png)
+![image.png](.github/assets/images/image%2027.png)
 
 Para ello añadimos esta función en el archivo `wp.ts`:
 
@@ -518,9 +518,9 @@ const posts = await getLatestPosts({perPage: 3})
 
 Entonces, de los resultados extraídos vamos a querer recuperar el título, la fecha, el excerpt, el content, el slug y la imagen. El problema es que la imagen no aparece directamente en los resultados devueltos, lo único que aparece es `featured_media: 17` .
 
-![image.png](.github/assets/image%2028.png)
+![image.png](.github/assets/images/image%2028.png)
 
-![image.png](.github/assets/image%2029.png)
+![image.png](.github/assets/images/image%2029.png)
 
 Y ahora renderizamos los posts de WordPress, en lugar de los estáticos que habíamos creado anteriormente:
 
@@ -553,17 +553,17 @@ const posts = await getLatestPosts({perPage: 3})
 
 Pero al ver el resultado vemos que hay algún problema con el excerpt que hemos renderizado usando el componente `GameCard.astro` :
 
-![image.png](.github/assets/image%2030.png)
+![image.png](.github/assets/images/image%2030.png)
 
 Así que vamos a solucionarlo (he cambiado el contenido del excerpt):
 
-![image.png](.github/assets/image%2031.png)
+![image.png](.github/assets/images/image%2031.png)
 
 ## ¿Por qué no se renderiza la imagen?
 
 Como hemos podido ver respecto a la obtención de la imagen, únicamente tenemos el id. Pero si nos fijamos en `_links`  nos indica cómo deberíamos recuperar este `featuremedia` :
 
-![image.png](.github/assets/image%2032.png)
+![image.png](.github/assets/images/image%2032.png)
 
 Se nos informa de que tenemos que hacer una llamada a esta URL para recuperar la información del `featuremedia` y te lo devuelve.
 
@@ -695,7 +695,7 @@ Este es el resultado ahora y como vemos al final del todo nos aparece un bloque 
 
 Y es que si accedemos a esta URL de la API de WordPress indicando que queremos el contenido embedded podemos ver la URL de la imagen en el campo `source_url` :
 
-![image.png](.github/assets/image%2033.png)
+![image.png](.github/assets/images/image%2033.png)
 
 **wp.ts**
 
@@ -758,11 +758,11 @@ También se puede optimizar en el fichero `functions.php`  y decirle qué campos
 
 Si entramos en el artículo para ver la URL veremos lo siguiente:
 
-![image.png](.github/assets/image%2034.png)
+![image.png](.github/assets/images/image%2034.png)
 
 Y como vemos el slug es `hello-world` , pero esto lo podemos cambiar. Y tenía este valor porque se basa en el primer título que tenía el artículo.
 
-![image.png](.github/assets/image%2035.png)
+![image.png](.github/assets/images/image%2035.png)
 
 ## Agregando nuevas entradas
 
@@ -770,11 +770,11 @@ Vamos a añadir más posts desde WordPress.
 
 De forma que ahora tenemos 3 posts:
 
-![image.png](.github/assets/image%2036.png)
+![image.png](.github/assets/images/image%2036.png)
 
 Pero la pregunta del millón ahora es que si entramos en cualquiera de los posts vemos esto:
 
-![image.png](.github/assets/image%2037.png)
+![image.png](.github/assets/images/image%2037.png)
 
 Y es que no tenemos la información del post.
 
@@ -820,7 +820,7 @@ const { title, content } = await getPostInfo(slug);
 
 Pero si probamos a acceder a nuestro de los posts:
 
-![image.png](.github/assets/image%2038.png)
+![image.png](.github/assets/images/image%2038.png)
 
 Esto es un problema más de Astro que podríamos arreglar activando el modo servidor.
 
@@ -876,7 +876,7 @@ const { title, content } = await getPostInfo(slug)
 
 Si nos fijamos en la consola podemos ver todas las entradas y las URLs repetidas que tenemos que generar gracias a los dos `console.log(slugs)` que hemos puesto arriba:
 
-![image.png](.github/assets/image%2039.png)
+![image.png](.github/assets/images/image%2039.png)
 
 <aside>
 <img src="https://www.notion.so/icons/warning_yellow.svg" alt="https://www.notion.so/icons/warning_yellow.svg" width="40px" />
@@ -906,33 +906,33 @@ Uno de los problemas que tenemos actualmente, es que no tenemos nada de SEO.
 
 Una de las cosas que podríamos hacer para solucionar esto es instalar el plugin de  “yoast”:
 
-![image.png](.github/assets/image%2040.png)
+![image.png](.github/assets/images/image%2040.png)
 
 Este plugin lo que va a hacer es que ahora las entradas van a tener como un bloque totalmente nuevo donde vamos a poder añadir títulos, descripciones, mejorar el SEO, etiquetas, etc.
 
 Realizamos la configuración inicial:
 
-![image.png](.github/assets/image%2041.png)
+![image.png](.github/assets/images/image%2041.png)
 
-![image.png](.github/assets/image%2042.png)
+![image.png](.github/assets/images/image%2042.png)
 
 Ahora al entrar a editar cualquiera de nuestros posts veremos las opciones de modificación del SEO disponibles:
 
-![image.png](.github/assets/image%2043.png)
+![image.png](.github/assets/images/image%2043.png)
 
 Vamos a añadir una meta description por ejemplo:
 
-![image.png](.github/assets/image%2044.png)
+![image.png](.github/assets/images/image%2044.png)
 
 Y lo segundo que tiene este plugin que es muy interesante es que automáticamente, sin necesidad de hacer absolutamente nada, si miramos la información que recuperamos del post veremos que tenemos más información disponible.
 
 Por ejemplo en la información recibida del post del Metro 4:
 
-![image.png](.github/assets/image%2045.png)
+![image.png](.github/assets/images/image%2045.png)
 
 Además de la información general sobre el SEO proporcionada por el plugin de yoast:
 
-![image.png](.github/assets/image%2046.png)
+![image.png](.github/assets/images/image%2046.png)
 
 Así que vamos a recuperar la información del SEO de cada post añadiendo esto a la función `getPostInfo()`  del archivo `wp.ts` :
 
@@ -978,7 +978,7 @@ const { title, content, seo } = await getPostInfo(slug)
 
 Si ahora accedemos al post de Metro 4 veremos que está usando la descripción que pusimos antes en el plugin de yoast:
 
-![image.png](.github/assets/image%2047.png)
+![image.png](.github/assets/images/image%2047.png)
 
 Además desde WordPress podemos cambiar todo el tema de los metadatos, el SEO, el título, descripción, el open graph, twitter, etc.
 
