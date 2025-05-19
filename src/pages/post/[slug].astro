@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 const { title, content } = await getPostInfo(slug)
 ---
 <Layout title={title}>
-  <article class="prose max-w-2xl mx-autou mt-24">
+  <article class="prose max-w-2xl mx-auto my-16">
     <h1>{title}</h1>
     <div set:html={content} />
   </article>
