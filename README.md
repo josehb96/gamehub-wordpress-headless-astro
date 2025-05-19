@@ -72,14 +72,8 @@ Igual que podemos consultar la información de los usuarios en esta:
 
 Pero la clave es que nos quedemos con el patrón de la URL para poder hacer peticiones a la API.
 
-<aside>
-<img src="https://www.notion.so/icons/error_red.svg" alt="https://www.notion.so/icons/error_red.svg" width="40px" />
-
-Caution
-
-Ocultar el usuario admin no sólo en la respuesta de la API, sino en todo lugar donde sea posible ocultar dicha información.
-
-</aside>
+>[!Caution]
+>Ocultar el usuario admin no sólo en la respuesta de la API, sino en todo lugar donde sea posible ocultar dicha información.
 
 ## Plugin de WP de GraphQL
 
@@ -143,14 +137,8 @@ Si ahora volvemos a consultar el resultado de ejecutar el código de GraphQL ant
 
 ![image.png](.github/assets/images/image%209.png)
 
-<aside>
-<img src="https://www.notion.so/icons/warning_yellow.svg" alt="https://www.notion.so/icons/warning_yellow.svg" width="40px" />
-
-Warning
-
-He cambiado las categorías y las he puesto en inglés.
-
-</aside>
+>[!Warning]
+>He cambiado las categorías y las he puesto en inglés.
 
 ## Entradas / Posts
 
@@ -164,14 +152,8 @@ Y contenido a la entrada de blog:
 
 ![image.png](.github/assets/images/image%2011.png)
 
-<aside>
-<img src="https://www.notion.so/icons/info-alternate_blue.svg" alt="https://www.notion.so/icons/info-alternate_blue.svg" width="40px" />
-
-Note
-
-Hemos añadido un excerpt personalizo, ya que de lo contrario tomaría el texto que se encuentra debajo del título del artículo.
-
-</aside>
+>[!Note]
+>Hemos añadido un excerpt personalizo, ya que de lo contrario tomaría el texto que se encuentra debajo del título del artículo.
 
 Pero claro, esto esta hecho con PHP y está usando una plantilla, es decir, de momento estamos trabajando con el WordPress de forma tradicional, pero esto no lo queremos, es decir, no queremos que el Front-End de WordPress esté disponible.
 
@@ -245,16 +227,11 @@ La publicamos.
 
 Una cosa importante en WordPress es que podemos configurar una página de inicio.
 
-<aside>
-<img src="https://www.notion.so/icons/info-alternate_blue.svg" alt="https://www.notion.so/icons/info-alternate_blue.svg" width="40px" />
-
-Note
+>[!Note]
 
 En WordPress una página es una página estática, simple y singular que tiene información, y ahí podríamos tener la política de privacidad, la página de inicio, la página del about, etc.
 
 En cambio las entradas son los artículos y se agrupan por defecto como si fuesen entradas del blog. Estos pueden ser paginados, agrupados por categorías, añadirles comentarios (aunque a las páginas también, aunque normalmente donde vamos a querer comentarios es en las entradas). 
-
-</aside>
 
 Vamos a Settings → Reading y establecemos la página de inicio con la página que acabamos de crear.
 
@@ -303,14 +280,8 @@ Ahora si consultamos la información que estamos obteniendo por consola, vemos e
 
 ![image.png](.github/assets/images/image%2025.png)
 
-<aside>
-<img src="https://www.notion.so/icons/info-alternate_blue.svg" alt="https://www.notion.so/icons/info-alternate_blue.svg" width="40px" />
-
-Note
-
-Si nos fijamos en los campos de title y content vemos que dentro tienen una propiedad llamada `rendered`, y esto es porque WordPress te viene ya renderizado con el HTML.
-
-</aside>
+>[!Note]
+>Si nos fijamos en los campos de title y content vemos que dentro tienen una propiedad llamada `rendered`, y esto es porque WordPress te viene ya renderizado con el HTML.
 
 Vamos a modificar el código de `wp.ts` para obtener el `title` y el `content`:
 
@@ -393,14 +364,8 @@ Ahora si consultamos el contenido de nuestra página principal veremos que el co
 
 En este caso, tenemos dos opciones, podríamos quitarle al contenido todas la etiquetas HTML, pero esto no tiene mucho sentido. O lo que deberíamos hacer realmente que es fiarnos de que lo que va a devolver es contenido que deberíamos ser capaces de renderizar.
 
-<aside>
-<img src="https://www.notion.so/icons/error_red.svg" alt="https://www.notion.so/icons/error_red.svg" width="40px" />
-
-Caution
-
-Esto lo podremos hacer siempre que sea contenido controlado por nosotros. No se puede hacer esto con contenido que esté poniendo un usuario. 
-
-</aside>
+>[!Caution]
+>Esto lo podremos hacer siempre que sea contenido controlado por nosotros. No se puede hacer esto con contenido que esté poniendo un usuario. 
 
 ```tsx
 ---
