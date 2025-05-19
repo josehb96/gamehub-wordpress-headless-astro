@@ -843,14 +843,8 @@ Si nos fijamos en la consola podemos ver todas las entradas y las URLs repetidas
 
 ![image.png](.github/assets/images/image%2039.png)
 
-<aside>
-<img src="https://www.notion.so/icons/warning_yellow.svg" alt="https://www.notion.so/icons/warning_yellow.svg" width="40px" />
-
-Warning
-
-Esto no tiene sentido hacerlo para un blog que tenga por ejemplo 5000 entradas porque tardaría demasiado en compilar y haría 5000 peticiones a la base de datos.
-
-</aside>
+>[!Warning]
+>Esto no tiene sentido hacerlo para un blog que tenga por ejemplo 5000 entradas porque tardaría demasiado en compilar y haría 5000 peticiones a la base de datos.
 
 Esta manera de proceder puede tener sentido en una landing que tenga 15-20 páginas que no sean muchas, si estamos hablando de un periódico, un blog, algo que tenga demasiados resultados, no vale la pena hacer esto.
 
